@@ -1,15 +1,12 @@
-'use client';
+"use client"
+import * as React from "react"
+import Link from "next/link"
+import { useState } from "react";
+import { Menu, X, Sparkles, Shield, TrendingDown, Phone } from 'lucide-react';
 
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import { Hero } from '@/components/Hero';
-import { FeaturedProduct } from '@/components/FeaturedProduct';
-import { ExtraSale } from '@/components/ExtraSale';
-import { Products } from '@/components/Products';
-import { AboutUs } from '@/components/AboutUs';
-import { Contact } from '@/components/Contact';
 
-export default function Home() {
+
+export function MainMenu() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
@@ -17,13 +14,10 @@ export default function Home() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setMobileMenuOpen(false);
-    }
-  };
+    } }
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-xl z-50 border-b border-gray-100">
+    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-xl z-50 border-b border-gray-100 -z-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-12">
             {/* Logo */}
@@ -103,77 +97,4 @@ export default function Home() {
           )}
         </div>
       </nav>
-
-      {/* Hero Section */}
-      <Hero scrollToSection={scrollToSection} />
-
-      {/* Featured Product Section */}
-      <FeaturedProduct />
-
-      {/* ExtraSale Section */}
-      <section id="extrasale">
-        <ExtraSale />
-      </section>
-
-      {/* Products Section */}
-      <section id="products">
-        <Products />
-      </section>
-
-      {/* About Us Section */}
-      <section id="about">
-        <AboutUs />
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact">
-        <Contact />
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#F5F5F7] text-gray-600 py-12 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl text-gray-900 tracking-tight">In‑like‑new</span>
-              </div>
-              <p className="text-sm text-gray-500">
-                Premium refurbished tech at unbeatable prices
-              </p>
-            </div>
-            <div>
-              <div className="space-y-2">
-                <button
-                  onClick={() => scrollToSection('extrasale')}
-                  className="block text-sm text-gray-500 hover:text-gray-900"
-                >
-                  ExtraSale
-                </button>
-                <button
-                  onClick={() => scrollToSection('products')}
-                  className="block text-sm text-gray-500 hover:text-gray-900"
-                >
-                  Products
-                </button>
-                <button
-                  onClick={() => scrollToSection('about')}
-                  className="block text-sm text-gray-500 hover:text-gray-900"
-                >
-                  About
-                </button>
-              </div>
-            </div>
-            <div>
-              <p className="text-sm text-gray-500">Email: info@inlikenew.com</p>
-              <p className="text-sm text-gray-500">Phone: +1 (555) 123-4567</p>
-            </div>
-          </div>
-          <div className="border-t border-gray-300 mt-8 pt-8 text-center">
-            <p className="text-xs text-gray-500">&copy; 2025 In‑like‑new. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
+  ) };
