@@ -3,6 +3,9 @@
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import sonyImg from "@/public/img/sony_wh1000mx6.webp";
+import { redirect } from 'next/dist/server/api-utils';
+import { url } from 'inspector';
 
 export function FeaturedProduct() {
   return (
@@ -42,7 +45,7 @@ export function FeaturedProduct() {
               className="text-xl text-gray-400 mb-8 max-w-md"
             >
               Industry‑leading noise cancellation. Exceptional sound quality. 
-              Premium comfort. Now refurbished.
+              Premium comfort. 
             </motion.p>
             
             <motion.div
@@ -74,10 +77,10 @@ export function FeaturedProduct() {
               className="flex items-center gap-6"
             >
               <div>
-                <div className="text-4xl tracking-tight mb-1">$279</div>
+                <div className="text-4xl tracking-tight mb-1">$299</div>
                 <div className="text-sm text-gray-400 line-through">$399</div>
               </div>
-              <Button className="bg-white hover:bg-gray-100 text-black px-8 py-6 rounded-full">
+              <Button onClick={() => window.open('https://www.ebay.com/itm/227062792417')} className="bg-white hover:bg-gray-400 text-black px-8 py-6 rounded-full">
                 Buy Now
               </Button>
             </motion.div>
@@ -88,12 +91,26 @@ export function FeaturedProduct() {
             {/* Animated background circle */}
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 0.2 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+              className="absolute w-96 h-96 bg-white rounded-full blur-3xl"
+            />
+             <motion.div
+              initial={{ scale: 0, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 0.1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: 'easeOut' }}
               className="absolute w-96 h-96 bg-white rounded-full blur-3xl"
             />
-            
+             <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 0.1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+              className="absolute w-96 h-96 bg-white rounded-full blur-3xl"
+            />
+
             {/* Product image with parallax effect */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, rotateY: -30 }}
@@ -105,7 +122,7 @@ export function FeaturedProduct() {
             >
               <motion.div
                 animate={{
-                  y: [0, -20, 0],
+                  y: [0, -15, 0],
                 }}
                 transition={{
                   duration: 4,
@@ -114,7 +131,7 @@ export function FeaturedProduct() {
                 }}
               >
                 <ImageWithFallback
-                  src="https://images.unsplash.com/photo-1761005654347-f5907893edb7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxTb255JTIwaGVhZHBob25lcyUyMHByZW1pdW18ZW58MXx8fHwxNzYyNTYzMzIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="/img/sony_wh1000mx6.webp"
                   alt="Sony WH-1000XM6 Headphones"
                   className="w-full max-w-md drop-shadow-2xl"
                 />
@@ -122,20 +139,8 @@ export function FeaturedProduct() {
             </motion.div>
 
             {/* Animated accent elements */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.3, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-              className="absolute top-20 right-10 w-32 h-32 border border-white/30 rounded-full"
-            />
-            <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 0.2, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="absolute bottom-20 left-10 w-24 h-24 border border-white/20 rounded-full"
-            />
+
+            
           </div>
         </div>
       </div>

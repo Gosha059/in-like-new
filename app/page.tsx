@@ -8,6 +8,7 @@ import { ExtraSale } from '@/components/ExtraSale';
 import { Products } from '@/components/Products';
 import { AboutUs } from '@/components/AboutUs';
 import { Contact } from '@/components/Contact';
+import { CursorifyProvider } from '@cursorify/react'
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
