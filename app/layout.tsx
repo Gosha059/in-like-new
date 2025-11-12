@@ -1,7 +1,5 @@
-
 import type { Metadata } from 'next';
 import './globals.css';
-
 
 export const metadata: Metadata = {
   title: 'In-like-new | Premium Refurbished Tech',
@@ -14,10 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    
-    <html lang="en" className="bg-background text-foreground">
-      <body suppressHydrationWarning={true}>{children}</body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
-    
   );
 }
